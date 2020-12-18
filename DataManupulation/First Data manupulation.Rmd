@@ -1,0 +1,126 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+plot(cars)
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+```{r}
+#data manipulation
+if (!require("dplyr")) {
+install.packages("dplyr", dependencies = TRUE)
+library(dplyr)
+}
+#drop_na
+if (!require("tidyr")) {
+install.packages("tidyr", dependencies = TRUE)
+library(tidyr)
+}
+if (!require("magrittr")) {
+install.packages("magrittr", dependencies = TRUE)
+library(magrittr)
+}
+#data manipulation
+if (!require("dplyr")) {
+install.packages("dplyr", dependencies = TRUE)
+library(dplyr)
+}
+#drop_na
+if (!require("tidyr")) {
+install.packages("tidyr", dependencies = TRUE)
+library(tidyr)
+}
+#cld
+if (!require("multcompView")) {
+install.packages("multcompView", dependencies = TRUE)
+library(multcompView)
+}
+#%LIKE%
+if (!require("data.table")) {
+install.packages("data.table", dependencies = TRUE)
+library(data.table)
+}
+#glmer
+if (!require("lme4")){install.packages("lme4", dependencies = TRUE)
+library(lme4)
+}
+#lsmeans
+if (!require("lsmeans")){install.packages("lsmeans", dependencies = TRUE)
+library(lsmeans)
+}
+#effects plot
+if (!require("effects")) {
+install.packages("effects", dependencies = TRUE)
+library(effects)
+}
+if (!require("car")) {
+install.packages("car", dependencies = TRUE)
+library(car)
+}
+if (!require("ggplot2")) {
+install.packages("ggplot2", dependencies = TRUE)
+library(ggplot2)
+}
+if (!require("ggpubr")) {
+install.packages("ggpubr", dependencies = TRUE)
+library(ggpubr)
+}
+if (!require("chron")) {
+install.packages("chron", dependencies = TRUE)
+library(chron)
+}
+if (!require("lubridate")) {
+install.packages("lubridate", dependencies = TRUE)
+library(Lubridate)
+}
+if (!require("hflights")) {
+install.packages("hflights", dependencies = TRUE)
+library(hflights)
+}
+if (!require("tidyverse")) {
+install.packages("tidyverse", dependencies = TRUE)
+library(tidyverse)
+}
+```
+```{r}
+hist(Data18122020$BCSHuman)
+hist(Data18122020$BCSCamera)
+
+hist(Data18122020$BCSHuman [Data18122020$Oorsprong == "Vincent"], xlim=c(0, 5), breaks=20, main='BCSHuman verdeling Vincent', xlab='', col='red')
+hist(Data18122020$BCSCamera [Data18122020$Oorsprong == "Vincent"], xlim=c(0, 5), breaks=20, main='BCSCamera verdeling Vincent', xlab='', col='blue')
+hist(Data18122020$BCSHuman [Data18122020$Oorsprong == "Priscilla"], xlim=c(0, 5), breaks=20, main='BCSHuman verdeling Priscilla', xlab='', col='red')
+hist(Data18122020$BCSCamera [Data18122020$Oorsprong == "Priscilla"], xlim=c(0, 5), breaks=20, main='BCSCamera verdeling Priscilla', xlab='', col='blue')
+```
+```{r}
+# Scatterplot Vincent BCSdata ----
+plot(Data18122020$BCSHuman [Data18122020$Oorsprong == "Vincent"], Data18122020$BCSCamera [Data18122020$Oorsprong == "Vincent"])
+# Scatterplot Priscilla BCSdata ----
+plot(Data18122020$BCSHuman [Data18122020$Oorsprong == "Priscilla"], Data18122020$BCSCamera [Data18122020$Oorsprong == "Priscilla"])
+
+plot(Data18122020[,25:31])
+plot(Data18122020[,10:31])
+```
+```{r}
+anyNA(Data18122020, recursive = FALSE)
+names(Data18122020)[colSums(is.na(Data18122020))>0]
+sum(is.na(Data18122020))
+Data181220202 <- na.omit(Data18122020)
+sum(is.na(Data18122020))
+dim(Data18122020)
+dim(Data181220202)
+```
+
+
+
